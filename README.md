@@ -1,4 +1,17 @@
-## Hi there 👋
+### 👨🏽‍💻 About me: 
+## 🎓 Education: ITMO University - Software Engineering (2024 - 2028)
+## ⚡Hobbies: basketball 🏀   reading 📖  football ⚽️
+
+
+
+
+
+
+
+
+
+
+
 
 <!--
 **vladik2801/vladik2801** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
