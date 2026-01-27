@@ -3,8 +3,7 @@
 ### ⚡Hobbies: basketball 🏀   reading 📖  football ⚽️
 
 
-# 🛠 Tools & Technologies
-https://github.com/devicons/devicon/blob/master/icons/cplusplus/cplusplus-original.svg
+# [🛠 Tools & Technologies]!(https://github.com/devicons/devicon/blob/master/icons/cplusplus/cplusplus-original.svg)
 
 
 
