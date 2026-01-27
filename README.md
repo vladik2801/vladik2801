@@ -3,7 +3,7 @@
 ### ⚡Hobbies: basketball 🏀   reading 📖  football ⚽️
 
 # 🧩 Skills
-[📊 Sort-Me](https://sort-me.org/profile/5078)  
+[📊 Sort-Me](https://sort-me.org/profile/5076)  
 
 # 🛠 Tools & Technologies
 <div>
