@@ -19,7 +19,10 @@
   <img src="https://github.com/devicons/devicon/blob/master/icons/postgresql/postgresql-original-wordmark.svg" title="PostgreSQL" alt="PostgreSQL" width="50" height="50"/>&nbsp;
 </div>
 
-
+## 📊 Statistics :
+<div>
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=vladik2801&layout=compact&theme=vision-friendly-dark" height="150"/>
+</div>
 
 
 
