@@ -1,10 +1,10 @@
 # 👨🏽‍💻 About me: 
-## 🎓 Education: ITMO University - Software Engineering (2024 - 2028)
-## ⚡Hobbies: basketball 🏀   reading 📖  football ⚽️
+### 🎓 Education: ITMO University - Software Engineering (2024 - 2028)
+### ⚡Hobbies: basketball 🏀   reading 📖  football ⚽️
 
 
 # 🛠 Tools & Technologies
-
+https://github.com/devicons/devicon/blob/master/icons/cplusplus/cplusplus-original.svg
 
 
 
