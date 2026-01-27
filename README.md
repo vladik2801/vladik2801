@@ -2,6 +2,8 @@
 ### 🎓 Education: ITMO University - Software Engineering (2024 - 2028)
 ### ⚡Hobbies: basketball 🏀   reading 📖  football ⚽️
 
+# 🧩 Skills
+[📊 Sort-Me](https://sort-me.org/profile/5078)  
 
 # 🛠 Tools & Technologies
 <div>
