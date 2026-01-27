@@ -26,8 +26,8 @@
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=vladik2801&layout=compact&theme=vision-friendly-dark" height="150"/>
 </div>
 
-
-
+## 🌍 Socials & Community  
+- 💬 **Telegram:** [@ITmachine_fullstack](https://t.me/ITmachine_fullstack)  
 
 
 
