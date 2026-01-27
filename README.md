@@ -3,6 +3,8 @@
 ### ⚡Hobbies: basketball 🏀   reading 📖  football ⚽️
 
 # 🧩 Skills
+- 💻 **Algorithms & Data Structures:**  
+![LeetCode](https://leetcard.jacoblin.cool/vladislav_2801)
 [📊 Sort-Me](https://sort-me.org/profile/5076)  
 
 # 🛠 Tools & Technologies
