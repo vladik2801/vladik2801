@@ -27,8 +27,9 @@
 </div>
 
 ## 📊 Statistics :
-<div>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=vladik2801&layout=compact&theme=vision-friendly-dark" height="150"/>
+<div id="stats">
+  <img src="http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=vladik2801&theme=github_dark" height="180"/>&nbsp;&nbsp;
+  <img src="http://github-profile-summary-cards.vercel.app/api/cards/stats?username=vladik2801&theme=github_dark" height="180"/>&nbsp;&nbsp;
 </div>
 
 ## 🌍 Socials & Community  
