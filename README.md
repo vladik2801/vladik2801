@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="https://sort-me.org/profile/5076">
-    <img src="https://raw.githubusercontent.com/vladik2801/vladik2801/main/assets/sortme.svg" />
+    <img src="https://raw.githubusercontent.com/vladik2801/vladik2801/main/assets/sortme.svg?v=2" />
   </a>
 </p> 
 
