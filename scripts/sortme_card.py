@@ -3,7 +3,7 @@ import os
 import urllib.request
 from datetime import datetime, timezone
 
-USER_ID_OR_HANDLE = "5076"  # <-- твой Sort-Me profile id
+USER_ID_OR_HANDLE = "5076"  
 API_URL = f"https://sort-me.org/api/users/getByHandle?handle={USER_ID_OR_HANDLE}"
 
 OUT_PATH = "assets/sortme.svg"
