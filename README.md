@@ -1,16 +1,29 @@
 ## 👨🏽‍💻 About Me
 
+<table>
+<tr>
+<td>
+
 ```yaml
 education:
   university: ITMO University
   major: Software Engineering
   period: 2024 — 2028
+```
 
+</td>
+<td>
+
+```yaml
 interests:
   - basketball 🏀
   - reading 📖
   - football ⚽
 ```
+
+</td>
+</tr>
+</table>
 # 🧩 Skills
 - 💻 **Algorithms & Data Structures:**
 
