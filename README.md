@@ -43,8 +43,11 @@
   <a href="https://t.me/ITmachine_fullstack">
     <img src="https://img.shields.io/badge/Telegram-@ITmachine_fullstack-26A5E4?style=for-the-badge&logo=telegram&logoColor=white" />
   </a>
+  
+  <a href="mailto:vladik2801@gmail.com">
+    <img src="https://img.shields.io/badge/Gmail-vladik2801@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
+  </a>
 </p>
-
 <!--
 **vladik2801/vladik2801** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
