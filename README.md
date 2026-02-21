@@ -1,29 +1,7 @@
-## 👨🏽‍💻 About Me
+# 👨🏽‍💻 About me: 
+### 🎓 Education: ITMO University - Software Engineering (2024 - 2028)
+### ⚡Hobbies: basketball 🏀   reading 📖  football ⚽️
 
-<table>
-<tr>
-<td>
-
-```yaml
-education:
-  university: ITMO University
-  major: Software Engineering
-  period: 2024 — 2028
-```
-
-</td>
-<td>
-
-```yaml
-interests:
-  - basketball 🏀
-  - reading 📖
-  - football ⚽
-```
-
-</td>
-</tr>
-</table>
 # 🧩 Skills
 - 💻 **Algorithms & Data Structures:**
 
