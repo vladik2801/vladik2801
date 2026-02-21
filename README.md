@@ -37,12 +37,15 @@
 </div>
 
 ## 📊 Statistics :
-<div align="center">
-  
-  <img height="165" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=vladik2801&theme=tokyonight"/>
-  <img height="165" src="https://streak-stats.demolab.com?user=vladik2801&theme=tokyonight&hide_border=true"/>
 
-  <img width="95%" src="https://github-readme-activity-graph.vercel.app/graph?username=vladik2801&theme=tokyo-night&hide_border=true"/>
+<div align="center">
+
+  <img width="48%" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=vladik2801&theme=tokyonight"/>
+  <img width="48%" src="https://streak-stats.demolab.com?user=vladik2801&theme=tokyonight&hide_border=true"/>
+
+  <br/><br/>
+
+  <img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=vladik2801&theme=tokyo-night&hide_border=true"/>
 
 </div>
 ---
