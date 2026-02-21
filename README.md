@@ -35,12 +35,15 @@
   <img width="95%" src="https://github-readme-activity-graph.vercel.app/graph?username=vladik2801&theme=tokyo-night&hide_border=true"/>
 
 </div>
-## 🌍 Socials & Community  
-- 💬 **Telegram:** [@ITmachine_fullstack](https://t.me/ITmachine_fullstack)  
+---
 
+## 🌍 Socials & Community
 
-
-
+<p align="center">
+  <a href="https://t.me/ITmachine_fullstack">
+    <img src="https://img.shields.io/badge/Telegram-@ITmachine_fullstack-26A5E4?style=for-the-badge&logo=telegram&logoColor=white" />
+  </a>
+</p>
 
 <!--
 **vladik2801/vladik2801** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
