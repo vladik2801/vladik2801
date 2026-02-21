@@ -1,41 +1,85 @@
 import json
 import os
 import urllib.request
+import urllib.parse
 from datetime import datetime, timezone
 
-USER_ID_OR_HANDLE = "5076"  
-API_URL = f"https://sort-me.org/api/users/getByHandle?handle={USER_ID_OR_HANDLE}"
+# ВАЖНО: тут можно использовать handle (ник) или id.
+SORTME_HANDLE_OR_ID = "5076"
+
+API_URLS = [
+    # 1) как ты делала (handle)
+    f"https://sort-me.org/api/users/getByHandle?handle={urllib.parse.quote(SORTME_HANDLE_OR_ID)}",
+    # 2) иногда у сервисов есть getById — если вдруг у них он есть, будет шанс
+    f"https://sort-me.org/api/users/getById?id={urllib.parse.quote(SORTME_HANDLE_OR_ID)}",
+]
 
 OUT_PATH = "assets/sortme.svg"
 os.makedirs(os.path.dirname(OUT_PATH), exist_ok=True)
 
-def get_json(url: str) -> dict:
+def fetch(url: str) -> tuple[int, str]:
     req = urllib.request.Request(
         url,
         headers={
             "User-Agent": "Mozilla/5.0 (GitHub Actions; sortme-card)",
-            "Accept": "application/json",
+            "Accept": "application/json,text/plain,*/*",
         },
     )
-    with urllib.request.urlopen(req, timeout=30) as r:
-        return json.loads(r.read().decode("utf-8"))
+    try:
+        with urllib.request.urlopen(req, timeout=30) as r:
+            status = getattr(r, "status", 200)
+            body = r.read().decode("utf-8", errors="replace")
+            return status, body
+    except Exception as e:
+        return 0, f"__ERROR__ {e}"
 
-data = get_json(API_URL)
+def get_data() -> dict:
+    last_debug = ""
+    for url in API_URLS:
+        status, body = fetch(url)
+        # Печатаем полезный дебаг в логи Actions
+        print(f"[Sort-Me] GET {url} -> status={status}")
+        print(f"[Sort-Me] body_head={body[:200]!r}")
 
-handle = data.get("handle", "unknown")
+        if status == 0:
+            last_debug = body
+            continue
+
+        # Если это JSON — парсим
+        body_stripped = body.lstrip()
+        if body_stripped.startswith("{") or body_stripped.startswith("["):
+            try:
+                return json.loads(body)
+            except json.JSONDecodeError as e:
+                last_debug = f"JSON decode error: {e}"
+                continue
+
+        # Если пришёл HTML/пусто — пробуем следующий URL
+        last_debug = f"Non-JSON response (status={status})"
+    raise RuntimeError(f"Could not fetch Sort-Me JSON. Last: {last_debug}")
+
+try:
+    data = get_data()
+except Exception as e:
+    print(f"[Sort-Me] Fallback mode: {e}")
+    data = {}
+
+handle = data.get("handle", SORTME_HANDLE_OR_ID)
 name = data.get("name", "")
 regal = data.get("regal") or {}
+
 rank = (regal.get("rank_record") or {}).get("rank", None)
 stats = regal.get("statistics") or {}
+
 total = stats.get("total", 0)
 diffs = stats.get("difficulties") or [0, 0, 0, 0, 0]
-
 easy, medium, hard, vhard, imp = (diffs + [0, 0, 0, 0, 0])[:5]
 
 updated = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
 rank_text = f"#{rank}" if isinstance(rank, int) else "—"
 
-# Простая SVG-карточка в стиле "dark"
+profile_link = f"https://sort-me.org/profile/{SORTME_HANDLE_OR_ID}"
+
 svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="520" height="160" viewBox="0 0 520 160" role="img" aria-label="Sort-Me stats">
   <defs>
     <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
@@ -68,7 +112,7 @@ svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="520" height="160" viewB
     Updated: {updated}
   </text>
 
-  <a href="https://sort-me.org/profile/{USER_ID_OR_HANDLE}" target="_blank" rel="noopener noreferrer">
+  <a href="{profile_link}" target="_blank" rel="noopener noreferrer">
     <text x="420" y="146" fill="#93c5fd" font-size="11" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto">
       open profile →
     </text>
