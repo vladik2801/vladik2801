@@ -5,12 +5,18 @@
 # 🧩 Skills
 - 💻 **Algorithms & Data Structures:**
 
-<p align="center">
-  <img src="https://leetcard.jacoblin.cool/vladislav_2801" height="200" />
-  <a href="https://sort-me.org/profile/5076">
-    <img src="https://raw.githubusercontent.com/vladik2801/vladik2801/main/assets/sortme.svg?v=3" height="200" />
-  </a>
-</p> 
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="https://leetcard.jacoblin.cool/vladislav_2801" height="200" />
+    </td>
+    <td align="center">
+      <a href="https://sort-me.org/profile/5076">
+        <img src="https://raw.githubusercontent.com/vladik2801/vladik2801/main/assets/sortme.svg?v=3" height="200" />
+      </a>
+    </td>
+  </tr>
+</table>
 
 # 🛠 Tools & Technologies
 <div>
