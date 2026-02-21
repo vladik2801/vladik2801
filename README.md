@@ -30,6 +30,7 @@
 <div id="stats">
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=vladik2801&theme=tokyonight"/>
   <img src="https://streak-stats.demolab.com?user=vladik2801&theme=tokyonight&hide_border=true"/>
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=vladik2801&theme=tokyo-night&hide_border=true"/>
 </div>
 
 ## 🌍 Socials & Community  
