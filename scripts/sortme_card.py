@@ -5,23 +5,18 @@ import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
 
-# твой id из /profile/5076
+# Твой профиль Sort-Me
 HANDLE_OR_ID = "5076"
 
 OUT_PATH = "assets/sortme.svg"
 os.makedirs(os.path.dirname(OUT_PATH), exist_ok=True)
 
 ENDPOINTS = [
-    # варианты, потому что у Sort-Me часть API живёт на api.sort-me.org
     "https://api.sort-me.org/api/users/getByHandle?handle={h}",
     "https://api.sort-me.org/users/getByHandle?handle={h}",
     "https://api.sort-me.org/api/users/getById?id={h}",
     "https://api.sort-me.org/users/getById?id={h}",
-
     "https://sort-me.org/api/users/getByHandle?handle={h}",
-    "https://sort-me.org/users/getByHandle?handle={h}",
-    "https://sort-me.org/api/users/getById?id={h}",
-    "https://sort-me.org/users/getById?id={h}",
 ]
 
 HEADERS = {
@@ -30,7 +25,7 @@ HEADERS = {
     "X-Requested-With": "XMLHttpRequest",
 }
 
-def fetch(url: str) -> tuple[int, str]:
+def fetch(url: str):
     req = urllib.request.Request(url, headers=HEADERS)
     with urllib.request.urlopen(req, timeout=30) as r:
         status = getattr(r, "status", 200)
@@ -47,7 +42,6 @@ def try_parse_json(body: str):
     return None
 
 def try_extract_from_text(body: str):
-    # иногда даже в HTML (или в "не-JSON") встречается нужный кусок
     m_total = re.search(r'"total"\s*:\s*(\d+)', body)
     total = int(m_total.group(1)) if m_total else None
 
@@ -60,51 +54,34 @@ def try_extract_from_text(body: str):
             diffs += [0] * (5 - len(diffs))
             diffs = diffs[:5]
 
-    # иногда "Solved 72" текстом
-    if total is None:
-        m_solved = re.search(r"Solved[^0-9]{0,30}(\d+)", body, re.I)
-        if m_solved:
-            total = int(m_solved.group(1))
-
     return total, diffs
 
 def get_user_data():
     quoted = urllib.parse.quote(HANDLE_OR_ID)
-    last_head = ""
+
     for tpl in ENDPOINTS:
         url = tpl.format(h=quoted)
         try:
             status, body = fetch(url)
-        except Exception as e:
-            print(f"[Sort-Me] GET {url} -> ERROR: {e}")
+        except Exception:
             continue
 
-        head = body[:200].replace("\n", " ")
-        print(f"[Sort-Me] GET {url} -> status={status} head={head!r}")
-
         js = try_parse_json(body)
-        if js is not None:
-            print(f"[Sort-Me] ✅ JSON from: {url}")
+        if js:
             return js
 
-        # если не JSON, попробуем вытащить хотя бы total/diffs
         total, diffs = try_extract_from_text(body)
-        if total is not None or diffs is not None:
-            print(f"[Sort-Me] ✅ extracted from non-JSON: {url} (total={total}, diffs={diffs})")
-            # вернём “псевдо-json” в ожидаемом формате
+        if total is not None:
             return {
                 "handle": HANDLE_OR_ID,
                 "regal": {
                     "statistics": {
-                        "total": total or 0,
+                        "total": total,
                         "difficulties": diffs or [0, 0, 0, 0, 0],
                     }
                 }
             }
 
-        last_head = head
-
-    print(f"[Sort-Me] ❌ Could not get stats. Last head: {last_head!r}")
     return {}
 
 data = get_user_data() or {}
@@ -128,45 +105,41 @@ rank_text = f"#{rank}" if isinstance(rank, int) else "—"
 updated = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
 profile_link = f"https://sort-me.org/profile/{HANDLE_OR_ID}"
 
-svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="520" height="160" viewBox="0 0 520 160" role="img" aria-label="Sort-Me stats">
-  <defs>
-    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
-      <stop offset="0%" stop-color="#0b1220"/>
-      <stop offset="100%" stop-color="#111827"/>
-    </linearGradient>
-  </defs>
+# === TOKYO NIGHT SVG ===
 
-  <rect x="0" y="0" width="520" height="160" rx="16" fill="url(#bg)" />
+svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="540" height="200" viewBox="0 0 540 200">
 
-  <text x="22" y="38" fill="#e5e7eb" font-size="18" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto">
-    Sort-Me
+  <rect width="540" height="200" rx="18" fill="#1a1b27"/>
+
+  <text x="30" y="45" fill="#bb9af7" font-size="22" font-family="Segoe UI, sans-serif" font-weight="600">
+    Sort-Me Stats
   </text>
-  <text x="22" y="64" fill="#a5b4fc" font-size="14" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto">
+
+  <text x="30" y="75" fill="#7aa2f7" font-size="14" font-family="Segoe UI, sans-serif">
     {handle}{(" — " + name) if name else ""}
   </text>
 
-  <text x="22" y="98" fill="#e5e7eb" font-size="14" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto">
-    Rank: <tspan fill="#f9fafb" font-weight="700">{rank_text}</tspan>
-  </text>
-  <text x="150" y="98" fill="#e5e7eb" font-size="14" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto">
-    Solved: <tspan fill="#f9fafb" font-weight="700">{total}</tspan>
+  <text x="30" y="115" fill="#c0caf5" font-size="16" font-family="Segoe UI, sans-serif">
+    Solved:
+    <tspan fill="#9ece6a" font-weight="700"> {total}</tspan>
   </text>
 
-  <text x="22" y="124" fill="#94a3b8" font-size="12" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto">
-    Easy {easy} · Medium {medium} · Hard {hard} · VHard {vhard} · Imp {imp}
+  <text x="30" y="140" fill="#c0caf5" font-size="13" font-family="Segoe UI, sans-serif">
+    Easy <tspan fill="#9ece6a">{easy}</tspan>
+    · Medium <tspan fill="#e0af68">{medium}</tspan>
+    · Hard <tspan fill="#f7768e">{hard}</tspan>
   </text>
 
-  <text x="22" y="146" fill="#64748b" font-size="11" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto">
-    Updated: {updated}
+  <text x="30" y="160" fill="#c0caf5" font-size="13" font-family="Segoe UI, sans-serif">
+    Very Hard <tspan fill="#f7768e">{vhard}</tspan>
+    · Impossible <tspan fill="#bb9af7">{imp}</tspan>
   </text>
 
-  <a href="{profile_link}" target="_blank" rel="noopener noreferrer">
-    <text x="420" y="146" fill="#93c5fd" font-size="11" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto">
-      open profile →
-    </text>
-  </a>
-</svg>
-"""
+  <text x="380" y="185" fill="#565f89" font-size="11" font-family="Segoe UI, sans-serif">
+    updated {updated}
+  </text>
+
+</svg>"""
 
 with open(OUT_PATH, "w", encoding="utf-8") as f:
     f.write(svg)
