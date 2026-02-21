@@ -28,8 +28,14 @@
 
 ## 📊 Statistics :
 <div id="stats">
-  <img src="http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=vladik2801&theme=github_dark" height="180"/>&nbsp;&nbsp;
-  <img src="http://github-profile-summary-cards.vercel.app/api/cards/stats?username=vladik2801&theme=github_dark" height="180"/>&nbsp;&nbsp;
+  <p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=vladik2801&show_icons=true&theme=tokyonight&hide_border=true"/>
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=vladik2801&layout=compact&theme=tokyonight&hide_border=true"/>
+  </p>
+
+  <p align="center">
+    <img src="https://streak-stats.demolab.com?user=vladik2801&theme=tokyonight&hide_border=true"/>
+  </p>
 </div>
 
 ## 🌍 Socials & Community  
