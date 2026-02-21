@@ -28,13 +28,11 @@
 
 ## 📊 Statistics :
 <div align="center">
+  
+  <img height="165" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=vladik2801&theme=tokyonight"/>
+  <img height="165" src="https://streak-stats.demolab.com?user=vladik2801&theme=tokyonight&hide_border=true"/>
 
-  <img height="170" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=vladik2801&theme=tokyonight"/>
-  <img height="170" src="https://streak-stats.demolab.com?user=vladik2801&theme=tokyonight&hide_border=true"/>
-
-  <br/><br/>
-
-  <img width="90%" src="https://github-readme-activity-graph.vercel.app/graph?username=vladik2801&theme=tokyo-night&hide_border=true"/>
+  <img width="95%" src="https://github-readme-activity-graph.vercel.app/graph?username=vladik2801&theme=tokyo-night&hide_border=true"/>
 
 </div>
 ## 🌍 Socials & Community  
