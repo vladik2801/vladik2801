@@ -1,10 +1,16 @@
 ## 👨🏽‍💻 About Me
 
-🎓 **ITMO University**  
-Software Engineering (2024 — 2028)
+```yaml
+education:
+  university: ITMO University
+  major: Software Engineering
+  period: 2024 — 2028
 
-⚡ **Interests**  
-Basketball 🏀 · Reading 📖 · Football ⚽
+interests:
+  - basketball 🏀
+  - reading 📖
+  - football ⚽
+```
 # 🧩 Skills
 - 💻 **Algorithms & Data Structures:**
 
