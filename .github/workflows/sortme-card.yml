@@ -2,8 +2,12 @@ name: Update Sort-Me card
 
 on:
   schedule:
-    - cron: "0 6 * * *"
+    - cron: "0 6 * * *"   # каждый день в 06:00 UTC
   workflow_dispatch:
+
+concurrency:
+  group: sortme-card
+  cancel-in-progress: true
 
 permissions:
   contents: write
@@ -11,9 +15,12 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # важно для rebase
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -28,6 +35,18 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
           git add assets/sortme.svg
-          git diff --cached --quiet || git commit -m "chore: update Sort-Me card"
-          git push
+
+          # если изменений нет — выходим спокойно
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+
+          git commit -m "chore: update Sort-Me card"
+
+          # подтягиваем возможные новые коммиты
+          git pull --rebase origin main
+
+          git push origin main
