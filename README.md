@@ -1,7 +1,24 @@
-# 👨🏽‍💻 About me: 
-### 🎓 Education: ITMO University - Software Engineering (2024 - 2028)
-### ⚡Hobbies: basketball 🏀   reading 📖  football ⚽️
+## 👨🏽‍💻 About Me
 
+<table>
+<tr>
+<td>
+
+🎓 **Education**  
+ITMO University  
+Software Engineering (2024 — 2028)
+
+</td>
+<td>
+
+⚡ **Hobbies**  
+🏀 Basketball  
+📖 Reading  
+⚽ Football  
+
+</td>
+</tr>
+</table>
 # 🧩 Skills
 - 💻 **Algorithms & Data Structures:**
 
