@@ -6,7 +6,11 @@
 - 💻 **Algorithms & Data Structures:**  
 ![LeetCode](https://leetcard.jacoblin.cool/vladislav_2801)
 
-[📊 Sort-Me](https://sort-me.org/profile/5076)  
+<p align="center">
+  <a href="https://sort-me.org/profile/5076">
+    <img src="https://raw.githubusercontent.com/vladik2801/vladik2801/main/assets/sortme.svg" />
+  </a>
+</p> 
 
 # 🛠 Tools & Technologies
 <div>
