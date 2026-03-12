@@ -41,7 +41,7 @@
 <table align="center">
   <tr>
     <td>
-      <img height="180" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=vladik2801&theme=tokyonight"/>
+      <img height="180" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=vladik2801&theme=tokyonight&v=2"/>
     </td>
     <td>
       <img height="180" src="https://streak-stats.demolab.com?user=vladik2801&theme=tokyonight&hide_border=true"/>
